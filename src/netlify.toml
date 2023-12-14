@@ -1,4 +1,0 @@
-[build]
-  publish = "src"
-  command = "npm run build"
-  memory = "512MB"
