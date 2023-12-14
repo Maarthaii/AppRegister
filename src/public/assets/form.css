@@ -1,0 +1,50 @@
+
+.register{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.backRegister form{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.backRegister input{
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 250px;
+    height: 15px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+}
+
+.btn{
+    display: flex;
+    gap: 20px;
+}
+
+#btn-send{
+    flex: 1;
+    margin-bottom: 10px;
+    padding: 5px;
+    height: 30px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    text-align: center;
+}
+
+#btn-reset{
+    flex: 1;
+    margin-bottom: 10px;
+    padding: 5px;
+    height: 30px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    text-align: center;
+}

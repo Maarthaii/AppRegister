@@ -1,0 +1,95 @@
+html{
+    background-color: black;
+}
+.register, .userBox {
+    background-color: transparent;
+    width: 400px;
+    height: 500px;
+    perspective: 1000px;
+    margin: auto;
+  }
+  
+  .h1 {
+    font-size: 1.5em;
+    font-weight: 900;
+    text-align: center;
+  }
+  
+  .register__card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+  }
+  
+  .register:hover .register__card {
+    transform: rotateY(180deg);
+  }
+  
+  .frontRegister,
+  .backRegister {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 1rem;
+    color: white;
+    box-shadow: 0 0 0.3em rgba(255, 255, 255, 0.5);
+    font-weight: 700;
+  }
+  
+  .frontRegister,
+  .frontRegister::before {
+    background: linear-gradient(50deg, rgb(208, 65, 168) 0%, rgb(191, 94, 94) 46%, rgb(234, 13, 13) 100%);
+  }
+  
+  .backRegister,
+  .backRegister::before {
+    background-image: linear-gradient(160deg, #0093E9 0%, #70e2bc 100%);
+  }
+  
+  .backRegister {
+    transform: rotateY(180deg);
+  }
+  
+  .frontRegister::before,
+  .backRegister::before {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: '';
+    width: 110%;
+    height: 110%;
+    position: absolute;
+    z-index: -1;
+    border-radius: 1em;
+    filter: blur(20px);
+    animation: animate 3s linear infinite;
+  }
+  
+  @keyframes animate {
+    0% {
+      opacity: 0.3;
+    }
+  
+    80% {
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0.3;
+    }
+  }
+
+  .backRegister input:focus{
+    pointer-events: none;
+  }
