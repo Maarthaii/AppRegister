@@ -6,11 +6,11 @@ const path=require('path');
 const cors =require('cors');
 const {engine} =require('express-handlebars');
 const bodyParser = require('body-parser');
+require('dotenv').config();
 
 //SERVIDOR Y PUERTO
 const server=express();
-//const port=3000;
-const port = process.env.PORT;
+const port=3000;
 
 //CONFIGURACIONES
 server.use(morgan('dev'));
@@ -30,11 +30,12 @@ server.get('/', (req, res)=>{
 
 //CONEXION A BASE DE DATOS
 const entity=mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: '30888898Liyi',
-    port: '3306',
-    database: 'userData'
+    host: process.env.MYSQL_HOST,
+    user : process.env.MYSQL_USER,
+    password : process.env.MYSQL_PASSWORD,
+    portb : process.env.MYSQL_PORT,
+    database : process.env.MYSQL_DATABASE,
+
 })
 
 
@@ -47,6 +48,7 @@ server.post('/registerInfo', (req, res)=>{
         (err, result)=>{
             if(err){
                 res.status(500).send('Error al insertar en la base de datos');
+                console.log(err);
             }else {
             res.render('register',{ mensaje:'Registro exitoso'})
             console.log('Datos insertados correctamente:', result);
